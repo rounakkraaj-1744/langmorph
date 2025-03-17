@@ -1,26 +1,67 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+import axios from "axios";
 export function activate(context: vscode.ExtensionContext) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "langmorph" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('langmorph.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from LangMorph!');
+	const disposable = vscode.commands.registerCommand('extension.langmorph', () => {
+		const panel = vscode.window.createWebviewPanel(
+			"langmorph", "LangMorph",
+			vscode.ViewColumn.Two,
+			{
+				enableScripts: true
+			}
+		);
+		panel.webview.html = getWebviewContent();
 	});
-
 	context.subscriptions.push(disposable);
 }
 
-// This method is called when your extension is deactivated
-export function deactivate() {}
+function getWebviewContent(): string {
+	return `
+	  <!DOCTYPE html>
+	  <html lang="en">
+	  <head>
+		<meta charset="UTF-8">
+		<script>
+		  function convert() {
+			const inputCode = document.getElementById('inputCode').value;
+			const language = document.getElementById('language').value;
+			vscode.postMessage({ text: inputCode, lang: language });
+		  }
+		</script>
+	  </head>
+	  <body>
+		<textarea id="inputCode"></textarea>
+		<select id="language">
+		  <option value="python">Python</option>
+		  <option value="javascript">JavaScript</option>
+		  <option value="typescript">TypeScript</option>
+		  <option value="java">Java</option>
+		  <option value="cpp">C++</option>
+		</select>
+		<button onclick="convert()">Convert</button>
+	  </body>
+	  </html>
+	`;
+}
+
+async function convertCode(fromLang: string, toLang: string): Promise<string> {
+	const res = await axios.post("https://api.openai.com/v1/chat/completions", {
+	  model: "gpt-4-turbo",
+	  messages: [
+		{ 
+			role: "system",
+			content: "You are an AI that converts code between languages with 100% accuracy." 
+		},
+			{
+				role: "user",
+				content: `Convert the following code to ${toLang}:\n\n${fromLang}`
+			}
+		]
+	},
+		{
+			headers: { Authorization: `Bearer ${process.env.OPENAI_KEY}` }
+		}
+	);
+  
+	return res.data.choices[0].message.content;
+  }
