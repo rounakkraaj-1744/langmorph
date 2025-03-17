@@ -38,7 +38,7 @@ function getWebviewContent(): string {
 		  <option value="java">Java</option>
 		  <option value="cpp">C++</option>
 		</select>
-		<button onclick="convert()">Convert</button>
+		<button onclick="convertCode()">Convert</button>
 	  </body>
 	  </html>
 	`;
