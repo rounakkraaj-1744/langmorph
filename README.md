@@ -55,6 +55,8 @@ Customize LangMorph settings in settings.json (Ctrl+, → Search for "LangMorph"
 Example configuration:
 
 ```json
+Copy
+Edit
 {
   "langmorph.defaultLanguage": "Python",
   "langmorph.syntaxPreservation": true,
@@ -106,6 +108,10 @@ Have issues or feature requests?
 🔹 Follow me on Twitter: @rounakk_745
 
 ---
+
+## 🚀 What's Next?
+✅ Improving the Design and UI of the extension.  
+✅ Adding features like code explanation and inbuilt AI prompts.    
 
 Stay tuned for updates! 🚀
 
