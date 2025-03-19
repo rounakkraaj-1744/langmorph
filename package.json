@@ -2,7 +2,7 @@
   "name": "langmorph",
   "displayName": "LangMorph",
   "description": "Seamless code conversion, right in your editor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "rounakkraajsabat",
   "engines": {
     "vscode": "^1.98.0"
@@ -10,7 +10,9 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:extension.langmorph"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
@@ -18,9 +20,8 @@
         "command": "extension.langmorph",
         "title": "LangMorph"
       }
-    ]
-  },
-  "viewsContainers": {
+    ],
+    "viewsContainers": {
       "activitybar": [
         {
           "id": "langmorphview",
@@ -30,14 +31,15 @@
       ]
     },
     "views": {
-      "myCustomView": [
+      "langmorphview": [
         {
           "id": "langmorphviewid",
-          "name": "langmorph"
+          "name": "LangMorph"
         }
       ]
-    },
-    "repository": {
+    }
+  },
+  "repository": {
     "type": "git",
     "url": "https://github.com/rounakkraaj-1744/langmorph.git"
   },
