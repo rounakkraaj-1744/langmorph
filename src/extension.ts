@@ -3,6 +3,19 @@ import axios from "axios";
 import * as fs from "fs";
 import * as path from "path";
 
+
+class LangMorphViewProvider implements vscode.WebviewViewProvider {
+    private _view?: vscode.WebviewView;
+
+    constructor(private readonly _extensionUri: vscode.Uri) {}
+
+    resolveWebviewView(webviewView: vscode.WebviewView) {
+        this._view = webviewView;
+        webviewView.webview.options = { enableScripts: true };
+        webviewView.webview.html = getWebviewContent();
+    }
+}
+
 const envPath = path.join(__dirname, "..", ".env");
 if (fs.existsSync(envPath)) {
 	const envConfig = fs.readFileSync(envPath, "utf-8");
@@ -16,6 +29,10 @@ if (fs.existsSync(envPath)) {
 
 export function activate(context: vscode.ExtensionContext) {
 	console.log('Congratulations, your extension "langmorph" is now active!');
+
+	context.subscriptions.push(
+        vscode.window.registerWebviewViewProvider("langmorphView", new LangMorphViewProvider(context.extensionUri))
+    );
 
 	const disposable = vscode.commands.registerCommand("extension.langmorph", () => {
 		const panel = vscode.window.createWebviewPanel(
