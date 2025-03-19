@@ -87,7 +87,7 @@ Want to improve LangMorph? Contribute to the project!
 
 1. Clone the repository:
 ```sh
-git clone https://github.com/your-repo/langmorph.git
+git clone https://github.com/rounakkraaj-1744/langmorph.git
 ```
 
 2. Install dependencies:
