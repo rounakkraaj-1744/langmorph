@@ -55,8 +55,6 @@ Customize LangMorph settings in settings.json (Ctrl+, → Search for "LangMorph"
 Example configuration:
 
 ```json
-Copy
-Edit
 {
   "langmorph.defaultLanguage": "Python",
   "langmorph.syntaxPreservation": true,
