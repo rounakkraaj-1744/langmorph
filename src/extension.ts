@@ -525,11 +525,17 @@ function getWebviewContent(): string {
 			  	spellcheck="false"></textarea>
 				<div class="input-group">
 					<select id="language">
+						<option value="c">C</option>
+						<option value="c++">C++</option>
+						<option value="c#">C#</option>
 						<option value="python">Python</option>
+						<option value="java">Java</option>
 						<option value="javascript">JavaScript</option>
 						<option value="typescript">TypeScript</option>
-						<option value="java">Java</option>
-						<option value="cpp">C++</option>
+						<option value="rust">Rust</option>
+						<option value="go">GoLang</option>
+						<option value="kotlin">Kotlin</option>
+
 					</select>
 					<button onclick="convertCode()">
 						<span>Transform Code</span>
