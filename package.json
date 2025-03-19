@@ -2,7 +2,7 @@
   "name": "langmorph",
   "displayName": "LangMorph",
   "description": "Seamless code conversion, right in your editor",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "rounakkraajsabat",
   "engines": {
     "vscode": "^1.98.0"
