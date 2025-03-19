@@ -38,13 +38,13 @@
 1. Open any code file.
 2. Click on the LangMorph icon in the Activity Bar.
 3. Choose the source and target languages.
-4. Click Convert and view the transformed code.
+4. Click Convert and view the transformed code.  
 🔹 Convert Code Using the Command Palette
 1. Select the code snippet you want to convert.
 2. Open the Command Palette (Ctrl+Shift+P).
 3. Type "LangMorph".
 4. Choose the target language.
-5. The converted code will replace the selection.
+5. The converted code will replace the selection.  
 🔹 Convert Code Using Context Menu
 - Right-click on the selected code and choose "Convert with LangMorph".
 
