@@ -1,56 +1,112 @@
-# 🚀 LangMorph - The Ultimate Code Converter Extension
+# LangMorph - Code Conversion Extension for VS Code
+🚀 LangMorph is a powerful VS Code extension that enables seamless code conversion between different programming languages. Whether you're switching between C++, Java, Python, JavaScript, TypeScript, or Rust, LangMorph provides an intuitive and efficient way to transform code snippets instantly.
 
-## 🎯 Overview
-**LangMorph** is a powerful VS Code extension that allows seamless conversion between **Java, C++, Python, JavaScript, and TypeScript** directly within the editor. With **100% accuracy**, it ensures that syntax, logic, and structure remain intact while switching between languages.
+---
 
 ## ✨ Features
-- 🔄 **Instant Code Translation**: Convert between Java, C++, Python, JavaScript, and TypeScript.
-- 🚀 **Seamless VS Code Integration**: Works directly within your editor.
-- ⚡ **High Accuracy**: Uses AI-driven language translation for precise conversion.
-- 🧠 **Smart Suggestions**: Provides intelligent recommendations post-conversion.
-- 🏗️ **Customizable Output**: Configure code style, formatting, and naming conventions.
+✅ Convert Code Instantly – Supports bidirectional conversion between:
 
-## 🔧 Installation
-1. **Clone the repository**:
-   ```sh
-   git clone https://github.com/rounakkraaj-1744/langmorph.git
-   cd codemorph
-   ```
-2. **Install dependencies**:
-   ```sh
-   npm install
-   ```
-3. **Build the extension**:
-   ```sh
-   npm run build
-   ```
-4. **Run in VS Code**:
-   ```sh
-   npm run start
-   ```
+- C++ ↔ Java ↔ Python ↔ JavaScript ↔ TypeScript ↔ Rust  
+✅ Context-Aware Translation – Preserves logical structure and optimizes syntax.  
+✅ VS Code Activity Bar Integration – Access LangMorph easily from the sidebar.  
+✅ Inline Code Conversion – Convert selected code without leaving the editor.  
+✅ Multi-file Support – Convert entire files or specific functions.  
+✅ Command Palette Access – Quick access via Ctrl+Shift+P → Convert Code with LangMorph.  
+✅ Custom Configuration – Fine-tune indentation, syntax preferences, and more.  
 
-## 🛠️ Tech Stack
-- **Frontend:** TypeScript, VS Code API
-- **Backend (AI Translation Model):** Python (FastAPI), TensorFlow/PyTorch
-- **Bundler:** esbuild (for fast compilation)
+---
 
-## 📌 Usage
-1. Open any code file in VS Code.
-2. Use the **CodeMorph Command** (`Ctrl+Shift+P` → `Convert Code to...`)
-3. Select the target language.
-4. Your code is instantly converted with **100% accuracy**! 🎉
+## 📌 Installation
+### From VS Code Marketplace
+1. Open VS Code.
+2. Go to the Extensions (Ctrl+Shift+X).
+3. Search for "LangMorph".
+4. Click Install.
 
-## 📢 Contributing
-We welcome contributions! Follow these steps:
-1. **Fork the repository**
-2. **Create a new branch**
-3. **Make changes and commit**
-4. **Submit a Pull Request**
+### Manual Installation
+1. Download the latest .vsix file from GitHub Releases.
+2. Open VS Code → Run:
+```sh
+   code --install-extension langmorph.vsix
+```
+3. Restart VS Code.
 
-## 🤝 Contact
-For any queries, feel free to reach out:
-- **Email:** your.email@example.com
-- **GitHub:** [yourusername](https://github.com/yourusername)
-- **Twitter:** [@yourhandle](https://twitter.com/yourhandle)
+---
 
-🚀 Happy Coding! 🎯
+## 🚀 Usage
+🔹 Convert Code Using the Activity Bar
+1. Open any code file.
+2. Click on the LangMorph icon in the Activity Bar.
+3. Choose the source and target languages.
+4. Click Convert and view the transformed code.
+🔹 Convert Code Using the Command Palette
+1. Select the code snippet you want to convert.
+2. Open the Command Palette (Ctrl+Shift+P).
+3. Type "LangMorph".
+4. Choose the target language.
+5. The converted code will replace the selection.
+🔹 Convert Code Using Context Menu
+- Right-click on the selected code and choose "Convert with LangMorph".
+
+---
+
+## ⚙️ Configuration Options
+Customize LangMorph settings in settings.json (Ctrl+, → Search for "LangMorph").
+Example configuration:
+
+```json
+{
+  "langmorph.defaultLanguage": "Python",
+  "langmorph.syntaxPreservation": true,
+  "langmorph.autoFormat": true
+}
+```
+
+---
+
+## 🛠️ Supported Languages
+LangMorph currently supports conversion between:
+
+- C
+- C++
+- Java
+- Python
+- JavaScript
+- TypeScript
+- Rust
+- GoLang
+- Kotlin  
+🚀 More languages coming soon!
+
+---
+
+## 🛠️ Development & Contribution
+Want to improve LangMorph? Contribute to the project!
+
+1. Clone the repository:
+```sh
+git clone https://github.com/your-repo/langmorph.git
+```
+
+2. Install dependencies:
+```sh
+npm install
+```
+
+3. Open in VS Code and run F5 to test.
+4. Pull requests are welcome! 🎉
+
+---
+
+## 📧 Support & Feedback
+Have issues or feature requests?
+
+1. Open an issue on GitHub.
+2. Contact me at coder.rounakk745@gmail.com.
+🔹 Follow me on Twitter: @rounakk_745
+
+---
+
+Stay tuned for updates! 🚀
+
+🎉 Happy Coding with LangMorph! 🎉
