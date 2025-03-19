@@ -3,6 +3,7 @@
   "displayName": "LangMorph",
   "description": "Seamless code conversion, right in your editor",
   "version": "0.0.1",
+  "publisher": "Rounakk Raaj Sabat",
   "engines": {
     "vscode": "^1.98.0"
   },
