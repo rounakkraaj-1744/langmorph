@@ -104,7 +104,7 @@ npm install
 Have issues or feature requests?
 
 1. Open an issue on GitHub.
-2. Contact me at coder.rounakk745@gmail.com.
+2. Contact me at coder.rounakk745@gmail.com.  
 🔹 Follow me on Twitter: @rounakk_745
 
 ---
