@@ -18,23 +18,23 @@
     "commands": [
       {
         "command": "extension.langmorph",
-        "title": "LangMorph"
+        "title": "LangMorph: Open Code Converter"
       }
     ],
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "langmorphview",
+          "id": "langmorphView",
           "title": "LangMorph",
           "icon": "resources/icon.png"
         }
       ]
     },
     "views": {
-      "langmorphview": [
+      "langmorphView": [
         {
-          "id": "langmorphviewid",
-          "name": "LangMorph"
+          "id": "langmorphPanel",
+          "name": "Code Converter"
         }
       ]
     }
