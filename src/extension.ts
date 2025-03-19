@@ -91,7 +91,9 @@ function getWebviewContent(): string {
 		  }
 
 		  .container {
-			max-width: 900px;
+			display: flex;
+			gap: 2rem;
+			max-width: 1200px;
 			margin: 0 auto;
 		  }
 
@@ -141,7 +143,6 @@ function getWebviewContent(): string {
 			background: var(--bg-card);
 			border-radius: 16px;
 			padding: 2rem;
-			margin-bottom: 2rem;
 			border: 1px solid var(--border);
 			box-shadow: 
 			  0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -149,6 +150,7 @@ function getWebviewContent(): string {
 			  0 0 0 1px rgba(255, 255, 255, 0.05) inset;
 			backdrop-filter: blur(10px);
 			transition: transform 0.2s ease, box-shadow 0.2s ease;
+			flex: 1;
 		  }
 
 		  .card:hover {
@@ -178,6 +180,9 @@ function getWebviewContent(): string {
 			line-height: 1.6;
 			resize: vertical;
 			transition: all 0.2s ease;
+			tab-size: 2;
+			white-space: pre;
+			overflow-x: auto;
 		  }
 
 		  textarea:focus {
@@ -198,7 +203,7 @@ function getWebviewContent(): string {
 			cursor: pointer;
 			min-width: 180px;
 			appearance: none;
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236366f1'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236366f1'%3E%3Cpath strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
 			background-repeat: no-repeat;
 			background-position: right 1rem center;
 			background-size: 1.25em;
@@ -255,7 +260,7 @@ function getWebviewContent(): string {
 		  }
 
 		  .output-container {
-			margin-top: 2rem;
+			margin-top: 0;
 			position: relative;
 			background: var(--bg-card);
 			border-radius: 16px;
@@ -264,6 +269,7 @@ function getWebviewContent(): string {
 			box-shadow: 
 			  0 4px 6px -1px rgba(0, 0, 0, 0.1),
 			  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+			flex: 1;
 		  }
 
 		  .output-header {
@@ -292,21 +298,39 @@ function getWebviewContent(): string {
 			box-shadow: 0 0 10px var(--success);
 		  }
 
+		  .copy-button {
+			background: var(--primary-gradient);
+			color: white;
+			border: none;
+			border-radius: 8px;
+			padding: 0.5rem 1rem;
+			font-size: 0.9rem;
+			font-weight: 500;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		  }
+
+		  .copy-button:hover {
+			transform: translateY(-1px);
+			box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+		  }
+
 		  .code-container {
 			position: relative;
 			margin-top: 1rem;
 		  }
 
 		  pre[class*="language-"] {
-			background: rgba(10, 10, 15, 0.5) !important;
-			border-radius: 12px !important;
-			padding: 1.25rem !important;
-			margin: 0 !important;
-			border: 1px solid var(--border) !important;
-			position: relative;
-			overflow: auto;
-			max-height: 500px;
-		  }
+    background: rgba(10, 10, 15, 0.5) !important;
+    border-radius: 12px !important;
+    padding: 1.25rem !important;
+    margin: 0 !important;
+    border: 1px solid var(--border) !important;
+    position: relative;
+    overflow: auto;
+    max-height: 500px;
+    tab-size: 2;
+  }
 
 		  pre[class*="language-"]::before {
 			content: '';
@@ -323,7 +347,60 @@ function getWebviewContent(): string {
 			font-size: 0.95rem !important;
 			line-height: 1.6 !important;
 			text-shadow: none !important;
+			white-space: pre-wrap; /* Wrap long lines */
+			word-wrap: break-word; /* Break long words */
 		  }
+
+		  .line-numbers {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3rem;
+    padding: 1.25rem 0.5rem;
+    text-align: right;
+    background: rgba(10, 10, 15, 0.3);
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    user-select: none;
+    border-right: 1px solid var(--border);
+  }
+
+  .editor-container {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .editor-actions {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+  }
+
+  .editor-action-button {
+    background: rgba(10, 10, 15, 0.7);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .editor-action-button:hover {
+    color: var(--text);
+    background: rgba(99, 102, 241, 0.2);
+    border-color: var(--primary);
+  }
 
 		  .token.comment, .token.prolog, .token.doctype, .token.cdata {
 		  	color: #94a3b8 !important;
@@ -442,11 +519,6 @@ function getWebviewContent(): string {
 	  </head>
 	  <body>
 		<div class="container">
-		  <div class="header">
-			<h2>LangMorph</h2>
-			<p class="subtitle">Transform your code between programming languages with AI-powered precision</p>
-		  </div>
-
 		  <div class="card">
 			<textarea id="inputCode" 
 				placeholder="// Enter your code here...&#10;// Our AI will transform it to your selected language while preserving logic and structure"
@@ -468,10 +540,11 @@ function getWebviewContent(): string {
 		  <div class="output-container">
 			<div class="output-header">
 			  <div class="output-title">Transformed Code</div>
-				<div class="loading" id="loading">
-					<div class="spinner"></div>
-					<span>Transforming your code...</span>
-				</div>
+			  <button class="copy-button" onclick="copyOutput()">Copy</button>
+			  <div class="loading" id="loading">
+				<div class="spinner"></div>
+				<span>Transforming your code...</span>
+			  </div>
 			</div>
 			<div class="code-container">
 				<pre><code id="outputCode" class="language-javascript"></code></pre>
@@ -506,6 +579,15 @@ function getWebviewContent(): string {
 			outputCode.style.opacity = '0.5';
 			
 			vscode.postMessage({ text: code, lang: language });
+		  }
+
+		  function copyOutput() {
+			const code = outputCode.textContent;
+			navigator.clipboard.writeText(code).then(() => {
+			  alert('Code copied to clipboard!');
+			}).catch(err => {
+			  console.error('Failed to copy code: ', err);
+			});
 		  }
 
 		  window.addEventListener("message", (event) => {
