@@ -10,18 +10,21 @@
   "categories": [
     "Other"
   ],
+  "activationEvents": [
+    "onCommand:langmorph.openWebview"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "langmorph.openWebview",
-        "title": "Launch LangMorph Webview"
+        "command": "extension.langmorph",
+        "title": "LangMorph Launced"
       }
     ],
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "myExtensionViewContainer",
+          "id": "langmorphView",
           "title": "LangMorph",
           "icon": "resources/icon.png"
         }
@@ -29,8 +32,15 @@
     },
     "views": {
       "myExtensionViewContainer": [
+      {
+        "id": "langmorphView",
+        "name": "My Custom View",
+        "icon": "resources/icon.png"
+      }
+    ],
+      "langmorphView": [
         {
-          "id": "langmorphView",
+          "id": "langmorphPanel",
           "name": "LangMorph",
           "icon": "resources/icon.png"
         }
