@@ -10,31 +10,29 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:extension.langmorph"
-  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.langmorph",
-        "title": "LangMorph: Open Code Converter"
+        "command": "langmorph.openWebview",
+        "title": "Launch LangMorph Webview"
       }
     ],
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "langmorphView",
+          "id": "myExtensionViewContainer",
           "title": "LangMorph",
           "icon": "resources/icon.png"
         }
       ]
     },
     "views": {
-      "langmorphView": [
+      "myExtensionViewContainer": [
         {
-          "id": "langmorphPanel",
-          "name": "Code Converter"
+          "id": "langmorphView",
+          "name": "LangMorph",
+          "icon": "resources/icon.png"
         }
       ]
     }
